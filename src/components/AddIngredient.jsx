@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const AddIngredient = () => {
-    const [ingredients, setIngredients] = useState(["Chicken", "Oregano", "Tomatoes"])
+    const [ingredients, setIngredients] = useState([])
 
     const addIngredient = (event) => {
         event.preventDefault()
