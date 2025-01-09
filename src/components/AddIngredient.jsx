@@ -4,8 +4,9 @@ const AddIngredient = () => {
     const [ingredients, setIngredients] = useState([])
 
     const addIngredient = (formData) => {
-        const newIngredient = formData.get('ingredient')
-        setIngredients( (prevIngredients) => [...prevIngredients, newIngredient] )
+        // const newIngredient = formData.get('ingredient')
+        // setIngredients( (prevIngredients) => [...prevIngredients, newIngredient] )
+        const data = Object.fromEntries(formData)
     }
 
     return (
