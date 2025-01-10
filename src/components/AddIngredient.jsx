@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const AddIngredient = () => {
-    const [ingredients, setIngredients] = useState([])
+    const [ingredients, setIngredients] = useState(["chicken", "oregano", "paprika", "soy sauce"])
     const [recipeShown, setRecipeShown] = useState(false)
 
     const ingredientsListItems = ingredients.map(el => <li key={el}> {el} </li>)
@@ -17,12 +17,12 @@ const AddIngredient = () => {
     }
 
     return (
-        <section className="w-screen mx-auto bg-off-white pt-11 pb-6">
+        <section className="w-screen mx-auto pt-11 pb-6">
             <form action={addIngredient}>
-                <div className="w-[420px] md:w-[520px] mx-auto">
+                <div className="w-[420px] md:w-[720px] mx-auto">
                     <div className="flex gap-5">
                         <input name="ingredient" className="rounded w-3/4 p-2 border-2" type="text" placeholder="eg. raddish" id="btnAddIngredient" aria-label="add-ingredient" />
-                        <button className="rounded bg-gray-900 w-1/4 text-white px-5">+ Add Ingredient</button>
+                        <button className="rounded bg-gray-900 w-2/4 text-white py-2 px-5">+ Add Ingredient</button>
                     </div>
                 </div>
             </form>
@@ -36,7 +36,7 @@ const AddIngredient = () => {
                             ingredients.length > 3 &&
                             <div className="border rounded bg-red-200 p-5 flex md:gap-5">
                                 <div>
-                                    <h3>Ready for a recipe?</h3>
+                                    <h3 className="text-xl font-bold mt-3">Ready for a recipe?</h3>
                                     <p>Generate a recipe from your list of ingredients.</p>
                                 </div>
                                 <button className="bg-blue-500 rounded-md text-white px-0 md:px-4" onClick={toggleRecipeShown}>Get a recipe</button>
@@ -49,9 +49,9 @@ const AddIngredient = () => {
                             <h2>Chef Claude Recommends:</h2>
                             <article className="suggested-recipe-container mb-4" aria-live="polite">
                                 <p>Based on the ingredients you have available, I would recommend making a simple a delicious <strong>Beef Bolognese Pasta</strong>. Here is the recipe:</p>
-                                <h3>Beef Bolognese Pasta</h3>
+                                <h3 className="text-xl font-bold mt-3">Beef Bolognese Pasta</h3>
                                 <strong>Ingredients:</strong>
-                                <ul>
+                                <ul className="list-disc ps-4">
                                     <li className="mb-2">1 lb. ground beef</li>
                                     <li className="mb-2">1 onion, diced</li>
                                     <li className="mb-2">3 cloves garlic, minced</li>
