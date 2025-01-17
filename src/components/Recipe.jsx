@@ -1,9 +1,10 @@
 
 
-const Recipe = () => {
+const Recipe = ({list}) => {
     return (
             <section className="mt-10">
-                <h2>Chef Claude Recommends:</h2>
+                {list}
+                {/* <h2>Chef Claude Recommends:</h2>
                 <article className="suggested-recipe-container mb-4" aria-live="polite">
                     <p>Based on the ingredients you have available, I would recommend making a simple a delicious <strong>Beef Bolognese Pasta</strong>. Here is the recipe:</p>
                     <h3 className="text-xl font-bold mt-3">Beef Bolognese Pasta</h3>
@@ -32,7 +33,7 @@ const Recipe = () => {
                         <li className="mb-2">Add the Bolognese sauce to the cooked pasta and toss to combine.</li>
                         <li className="mb-2">Serve hot, garnished with additional fresh basil or grated Parmesan cheese if desired.</li>
                     </ol>
-                </article>
+                </article> */}
             </section>
     )
 }

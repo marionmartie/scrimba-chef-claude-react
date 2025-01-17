@@ -1,14 +1,22 @@
 import { useState } from "react"
 import Recipe from "./Recipe"
 import IngredientList from "./IngredientList"
+import { getRecipeFromMistral } from '../../ai.jsx'
 
 const AddIngredient = () => {
     const [ingredients, setIngredients] = useState(["chicken", "oregano", "paprika", "soy sauce"])
     const [recipeShown, setRecipeShown] = useState(false)
+    const [recipe, setRecipe] = useState('')
 
 
     const toggleRecipeShown = () => {
+        // setRecipe( getRecipeFromMistral(ingredients) )
         setRecipeShown( prevState => !prevState )
+    }
+
+    const getRecipe = async () => {
+        const recipeMarkdown = await getRecipeFromMistral(ingredients)
+        console.log(recipeMarkdown);
     }
 
     const addIngredient = (formData) => {
@@ -30,9 +38,9 @@ const AddIngredient = () => {
             {
                 ingredients.length > 0 &&
                 <div className="w-[420px] md:w-[520px] mx-auto">
-                    <IngredientList item={ingredients} handleShowRecipe={toggleRecipeShown} />
+                    <IngredientList item={ingredients} handleShowRecipe={getRecipe} />
                     {
-                        recipeShown && <Recipe />
+                        recipeShown && <Recipe list={recipe} />
                     }
                 </div>
             }
